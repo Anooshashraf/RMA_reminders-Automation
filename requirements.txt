@@ -1,0 +1,6 @@
+pandas
+openpyxl
+Pillow
+pyautogui
+pyperclip
+pywin32
