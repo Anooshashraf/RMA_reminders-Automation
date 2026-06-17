@@ -400,8 +400,8 @@ import io
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_FOLDER = os.path.join(BASE_DIR, "RMA_Screenshots")
-YOUR_PHONE_NUMBER = "923108486366"  # Your WhatsApp number
-SENDER_NAME = "HAMMAD ALI"
+YOUR_PHONE_NUMBER = "923108486366"  
+SENDER_NAME = "Anoosha Ashraf"
 SENDER_PHONE_PK = "+92 371 1128675"
 SENDER_PHONE_US = "+1 (213) 214-4337"
 

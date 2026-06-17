@@ -3,14 +3,15 @@
     "whatsapp_group": "AIRLINE DISTRICT - HOUSTON",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\AIRLINE DISTRICT - HOUSTON.png",
-    "record_count": 8,
+    "record_count": 33,
     "markets": [
       "HOUSTON"
     ],
     "dms": [
       {
         "name": "Mukram Shareef Mohammed",
-        "phone": "314-297-8900"
+        "phone": "314-297-8900",
+        "dmNameRep": "~Mukram"
       }
     ]
   },
@@ -18,22 +19,30 @@
     "whatsapp_group": "ARIZONA SUPPORT",
     "send_mode": "tag_all_dms",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\ARIZONA SUPPORT.png",
-    "record_count": 20,
+    "record_count": 18,
     "markets": [
       "ARIZONA"
     ],
     "dms": [
       {
-        "name": "Adil",
-        "phone": null
+        "name": "Akbar Uddin",
+        "phone": null,
+        "dmNameRep": null
       },
       {
-        "name": "Hamza",
-        "phone": null
+        "name": "Hamed Ali",
+        "phone": "(972) 502-0820",
+        "dmNameRep": "~HAMED ALI SUFI"
       },
       {
-        "name": "Shoeb",
-        "phone": null
+        "name": "Hamza Ali",
+        "phone": "901-666-0279",
+        "dmNameRep": null
+      },
+      {
+        "name": "Shoeb Naqvi",
+        "phone": "817-893-7273",
+        "dmNameRep": "~Naqvi"
       }
     ]
   },
@@ -41,14 +50,15 @@
     "whatsapp_group": "ATLANTA TEAM",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\ATLANTA TEAM.png",
-    "record_count": 3,
+    "record_count": 8,
     "markets": [
       "GEORGIA"
     ],
     "dms": [
       {
         "name": "Ayyan Budwani",
-        "phone": null
+        "phone": "(281) 831-7135",
+        "dmNameRep": "~Ayyan Budwani"
       }
     ]
   },
@@ -56,14 +66,15 @@
     "whatsapp_group": "Bay Area Core",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\Bay Area Core.png",
-    "record_count": 1,
+    "record_count": 3,
     "markets": [
       "BAY AREA"
     ],
     "dms": [
       {
         "name": "Mohammed Anas",
-        "phone": "516-369-7846"
+        "phone": "516-369-7846",
+        "dmNameRep": "~Anas"
       }
     ]
   },
@@ -78,7 +89,8 @@
     "dms": [
       {
         "name": "MUHAMMAD AFZAL",
-        "phone": "(346) 888-7869"
+        "phone": "(346) 888-7869",
+        "dmNameRep": "~MA"
       }
     ]
   },
@@ -86,29 +98,15 @@
     "whatsapp_group": "CENTRAL DISTRICT - HOUSTON",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\CENTRAL DISTRICT - HOUSTON.png",
-    "record_count": 6,
+    "record_count": 5,
     "markets": [
       "HOUSTON"
     ],
     "dms": [
       {
         "name": "Zubair Hussain",
-        "phone": null
-      }
-    ]
-  },
-  {
-    "whatsapp_group": "Charlotte-Support",
-    "send_mode": "send_to_group",
-    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\Charlotte-Support.png",
-    "record_count": 5,
-    "markets": [
-      "CHARLOTTE"
-    ],
-    "dms": [
-      {
-        "name": "Namir Elmouchantaf",
-        "phone": "901 730 9699"
+        "phone": "(704) 267-3986",
+        "dmNameRep": "~Zubair Hussain"
       }
     ]
   },
@@ -116,22 +114,25 @@
     "whatsapp_group": "DALLAS_BOTH",
     "send_mode": "send_to_both_groups",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\DALLAS_BOTH.png",
-    "record_count": 17,
+    "record_count": 19,
     "markets": [
       "DALLAS"
     ],
     "dms": [
       {
         "name": "Imran Ahmed Mohammed",
-        "phone": null
+        "phone": "945 257-4358",
+        "dmNameRep": "~Ahmed Imran"
       },
       {
         "name": "Imran Shaikh",
-        "phone": null
+        "phone": null,
+        "dmNameRep": null
       },
       {
         "name": "Salim Thanawala",
-        "phone": null
+        "phone": "(817) 448-5458",
+        "dmNameRep": "~Salim T"
       }
     ]
   },
@@ -139,14 +140,15 @@
     "whatsapp_group": "EAST DISTRICT - HOUSTON",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\EAST DISTRICT - HOUSTON.png",
-    "record_count": 6,
+    "record_count": 2,
     "markets": [
       "HOUSTON"
     ],
     "dms": [
       {
         "name": "Wajahat Ali Sattar Rajper",
-        "phone": "516-751-1018"
+        "phone": "516-751-1018",
+        "dmNameRep": "~Wajahat Ali"
       }
     ]
   },
@@ -161,7 +163,56 @@
     "dms": [
       {
         "name": "Saad Ali",
-        "phone": null
+        "phone": "(662) 668-6786",
+        "dmNameRep": "~Saad Ali"
+      }
+    ]
+  },
+  {
+    "whatsapp_group": "LOS ANGELES - CENTRAL",
+    "send_mode": "send_to_group",
+    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\LOS ANGELES - CENTRAL.png",
+    "record_count": 12,
+    "markets": [
+      "LOS ANGELES"
+    ],
+    "dms": [
+      {
+        "name": "Subhan Ansari",
+        "phone": "(346) 467-0048",
+        "dmNameRep": "~Subhan Ansari"
+      }
+    ]
+  },
+  {
+    "whatsapp_group": "LOS ANGELES - NORTH",
+    "send_mode": "send_to_group",
+    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\LOS ANGELES - NORTH.png",
+    "record_count": 2,
+    "markets": [
+      "LOS ANGELES"
+    ],
+    "dms": [
+      {
+        "name": "Sharik Thobani",
+        "phone": "929-462-9332",
+        "dmNameRep": "~Sharik"
+      }
+    ]
+  },
+  {
+    "whatsapp_group": "LOS ANGELES - San Bernardino",
+    "send_mode": "send_to_group",
+    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\LOS ANGELES - San Bernardino.png",
+    "record_count": 6,
+    "markets": [
+      "LOS ANGELES"
+    ],
+    "dms": [
+      {
+        "name": "Maaz Khan",
+        "phone": "(832) 497-7776",
+        "dmNameRep": "~Maaz Z Khan"
       }
     ]
   },
@@ -169,14 +220,15 @@
     "whatsapp_group": "MIAMI - Support",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\MIAMI - Support.png",
-    "record_count": 4,
+    "record_count": 2,
     "markets": [
       "PALM BEACH"
     ],
     "dms": [
       {
         "name": "Shahrukh Khalid",
-        "phone": "(281) 705-8485"
+        "phone": "(281) 705-8485",
+        "dmNameRep": "~SRK"
       }
     ]
   },
@@ -191,7 +243,8 @@
     "dms": [
       {
         "name": "Syed Amir",
-        "phone": null
+        "phone": "(806) 543-8091",
+        "dmNameRep": "~Amir"
       }
     ]
   },
@@ -206,7 +259,8 @@
     "dms": [
       {
         "name": "Zaid Waseem",
-        "phone": null
+        "phone": "(901) 633-7063",
+        "dmNameRep": "~Zaid"
       }
     ]
   },
@@ -214,14 +268,15 @@
     "whatsapp_group": "Memphis Team South",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\Memphis Team South.png",
-    "record_count": 9,
+    "record_count": 3,
     "markets": [
       "MEMPHIS"
     ],
     "dms": [
       {
         "name": "Muhammad Shoaib Sheeraz",
-        "phone": null
+        "phone": "(713) 319-8252",
+        "dmNameRep": "~Shoaib"
       }
     ]
   },
@@ -229,21 +284,38 @@
     "whatsapp_group": "NASHVILLE - SUPPORT",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\NASHVILLE - SUPPORT.png",
-    "record_count": 5,
+    "record_count": 7,
     "markets": [
       "NASHVILLE"
     ],
     "dms": [
       {
         "name": "Khaja Ameenuddin Ghori",
-        "phone": null
+        "phone": "(847) 637-3678",
+        "dmNameRep": "~Mr.Anas Ghory"
       }
     ]
   },
   {
-    "whatsapp_group": "NC-Raleigh East",
+    "whatsapp_group": "NC - Durham",
     "send_mode": "send_to_group",
-    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\NC-Raleigh East.png",
+    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\NC - Durham.png",
+    "record_count": 5,
+    "markets": [
+      "NORTH CAROL"
+    ],
+    "dms": [
+      {
+        "name": "Hassan Tanveer",
+        "phone": null,
+        "dmNameRep": null
+      }
+    ]
+  },
+  {
+    "whatsapp_group": "NC - Raleigh East",
+    "send_mode": "send_to_group",
+    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\NC - Raleigh East.png",
     "record_count": 3,
     "markets": [
       "NORTH CAROL"
@@ -251,22 +323,24 @@
     "dms": [
       {
         "name": "SyedAli AhmedRizvi",
-        "phone": null
+        "phone": null,
+        "dmNameRep": null
       }
     ]
   },
   {
-    "whatsapp_group": "NC-Raleigh West",
+    "whatsapp_group": "NC - Raleigh West",
     "send_mode": "send_to_group",
-    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\NC-Raleigh West.png",
-    "record_count": 1,
+    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\NC - Raleigh West.png",
+    "record_count": 2,
     "markets": [
       "NORTH CAROL"
     ],
     "dms": [
       {
         "name": "Uzair Uddin",
-        "phone": null
+        "phone": null,
+        "dmNameRep": null
       }
     ]
   },
@@ -281,7 +355,57 @@
     "dms": [
       {
         "name": "MD Sunvee Bin Islam",
-        "phone": "(929) 832-6832"
+        "phone": "(929) 832-6832",
+        "dmNameRep": "~Sunvee"
+      }
+    ]
+  },
+  {
+    "whatsapp_group": "North Bay Area- Main",
+    "send_mode": "send_to_group",
+    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\North Bay Area- Main.png",
+    "record_count": 1,
+    "markets": [
+      "NORTH BAY AREA"
+    ],
+    "dms": [
+      {
+        "name": "Muhammad Sumairuddin",
+        "phone": null,
+        "dmNameRep": null
+      }
+    ]
+  },
+  {
+    "whatsapp_group": "Northside Denver",
+    "send_mode": "send_to_group",
+    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\Northside Denver.png",
+    "record_count": 7,
+    "markets": [
+      "COLORADO"
+    ],
+    "dms": [
+      {
+        "name": "Abdullah Butt",
+        "phone": "347-698-7456",
+        "dmNameRep": "~Abdullah"
+      }
+    ]
+  },
+  {
+    "whatsapp_group": "Philadelphia Support",
+    "send_mode": "send_to_group",
+    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\Philadelphia Support.png",
+    "record_count": 9,
+    "markets": [
+      "PHILY",
+      "PHILLY"
+    ],
+    "dms": [
+      {
+        "name": "HAMED ALI SUFI SYED",
+        "phone": null,
+        "dmNameRep": null
       }
     ]
   },
@@ -289,19 +413,22 @@
     "whatsapp_group": "Portland Oregon Main",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\Portland Oregon Main.png",
-    "record_count": 5,
+    "record_count": 9,
     "markets": [
       "OXNARD",
+      "PALMDALE",
       "OREGON"
     ],
     "dms": [
       {
         "name": "Aslam Khan",
-        "phone": null
+        "phone": null,
+        "dmNameRep": null
       },
       {
         "name": "Prabhakar Sivan",
-        "phone": "(346) 758-1747"
+        "phone": "(346) 758-1747",
+        "dmNameRep": "~Prabha"
       }
     ]
   },
@@ -309,14 +436,15 @@
     "whatsapp_group": "Sacramento Main",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\Sacramento Main.png",
-    "record_count": 2,
+    "record_count": 4,
     "markets": [
       "SACRAMENTO"
     ],
     "dms": [
       {
-        "name": "Hafiz Asad Burgees",
-        "phone": null
+        "name": "Talha Qureshi",
+        "phone": "(713) 614-5550",
+        "dmNameRep": "~Tee"
       }
     ]
   },
@@ -324,19 +452,31 @@
     "whatsapp_group": "SAN DIEGO CORE",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\SAN DIEGO CORE.png",
-    "record_count": 6,
+    "record_count": 3,
     "markets": [
-      "SAN FRANCISCO",
       "SAN DIEGO"
     ],
     "dms": [
       {
         "name": "Hassan Saleem",
-        "phone": null
-      },
+        "phone": "(936) 707-2084",
+        "dmNameRep": "~Hassan"
+      }
+    ]
+  },
+  {
+    "whatsapp_group": "SAN DIEGO CORE",
+    "send_mode": "send_to_group",
+    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\SAN DIEGO CORE.png",
+    "record_count": 2,
+    "markets": [
+      "SAN FRANCISCO"
+    ],
+    "dms": [
       {
         "name": "Kamaran Mohammed",
-        "phone": null
+        "phone": "(903) 944-3868",
+        "dmNameRep": "~Kamran"
       }
     ]
   },
@@ -344,14 +484,31 @@
     "whatsapp_group": "SOUTH DISTRICT - HOUSTON",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\SOUTH DISTRICT - HOUSTON.png",
-    "record_count": 17,
+    "record_count": 9,
     "markets": [
       "HOUSTON"
     ],
     "dms": [
       {
         "name": "Salman Riaz",
-        "phone": null
+        "phone": "(320) 895-9483",
+        "dmNameRep": "~SR"
+      }
+    ]
+  },
+  {
+    "whatsapp_group": "Southside Denver",
+    "send_mode": "send_to_group",
+    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\Southside Denver.png",
+    "record_count": 4,
+    "markets": [
+      "COLORADO"
+    ],
+    "dms": [
+      {
+        "name": "Muhammad Farhan Asghar",
+        "phone": "720-350-3246",
+        "dmNameRep": "~Farhan"
       }
     ]
   }

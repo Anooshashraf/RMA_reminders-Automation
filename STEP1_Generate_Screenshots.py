@@ -22,7 +22,7 @@ from PIL import ImageGrab
 #  CONFIGURATION — Update these for your machine
 # ─────────────────────────────────────────────────────────────
 
-EXCEL_FILE    = r"\\192.168.1.3\Inventory\Anoosha\JUNE-2026\3rd June 2026\RMA XBM Trade-in Consollidated Sep 2025.xlsx"
+EXCEL_FILE    = r"\\192.168.1.3\Inventory\Anoosha\RMA XBM Tradein-in Consolidated 2026.xlsx"
 SHEET_NAME    = "Sheet1"
 BASE_DIR      = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_FOLDER = os.path.join(BASE_DIR, "RMA_Screenshots")

@@ -34,9 +34,6 @@ YOUR_NUMBER = "923108486366"   # your WhatsApp number without +
 pyautogui.FAILSAFE = True      # move mouse to top-left corner to stop
 pyautogui.PAUSE    = 0.5
 
-# ─────────────────────────────────────────────────────────────
-#  CLIPBOARD HELPERS
-# ─────────────────────────────────────────────────────────────
 
 def copy_text(text):
     pyperclip.copy(text)
@@ -55,16 +52,20 @@ def copy_image(image_path):
     win32clipboard.CloseClipboard()
     time.sleep(0.5)
 
-# ─────────────────────────────────────────────────────────────
-#  CAPTION FORMAT  (exactly matches your screenshot)
-# ─────────────────────────────────────────────────────────────
-
 def format_caption(group_data):
     dms = group_data.get('dms', [])
-    tag_lines = [f"@{dm['name'].strip()}" for dm in dms if dm.get('name','').strip()]
+    
+    # Build tag lines using dmNameRep
+    tag_lines = []
+    for dm in dms:
+        rep_name = dm.get('dmNameRep')
+        # Only tag if dmNameRep exists and is not None/null/empty/dash
+        if rep_name and rep_name != '-' and rep_name != 'null' and str(rep_name).strip():
+            tag_lines.append(f"@{rep_name}")
+    
     tag_block = "\n".join(tag_lines)
     if tag_block:
-        tag_block += "\n"
+        tag_block += "\n\n"
 
     return (
         f"{tag_block}"
@@ -74,10 +75,6 @@ def format_caption(group_data):
         "If you need any support, clarification, or assistance, please feel free to reach out — we're here to help 🤝\n\n"
         "✨"
     )
-
-# ─────────────────────────────────────────────────────────────
-#  OPEN CHAT  (Ctrl+F search — same as the working senior script)
-# ─────────────────────────────────────────────────────────────
 
 def open_chat(number):
     # Open search bar
