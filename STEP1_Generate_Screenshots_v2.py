@@ -451,7 +451,7 @@ def normalize_name(name):
 DM_NAME_MAPPING = {
     # Main Excel Name → DM Contacts Name
     "Hamed Ali": "HAMED ALI SUFI SYED",
-    "Hamza Ali": "HAMZA ALI",
+    "Hamza Ali": "Hamza Ali",
     "Akbar Uddin": "Akbar Uddin",
     "Abdullah Butt": "ABDULLAH BUTT",
     "Muhammad Farhan Asghar": "Muhammad Farhan Asghar",
@@ -482,7 +482,7 @@ DM_NAME_MAPPING = {
     "SYED AMIR": "SYED AMIR",
     "Khaja Ameenuddin Ghori": "Khaja Ameenuddin Ghori",
     "MOHAMMED SUMAIR": "MOHAMMED SUMAIR",
-    "SYED ALI AHMED RIZVI": "SyedAli AhmedRizvi",
+    "SYEDALI AHMEDRIZVI": "SyedAli AhmedRizvi",
     "HASSAN TANVEER": "Hassan Tanveer",
     "UZAIR UDDIN": "Uzair Uddin",
     "Prabhakar Sivan": "Prabhakar Sivan",
@@ -496,6 +496,7 @@ DM_NAME_MAPPING = {
     "Shoeb Naqvi": "SHOEB NAQVI",
     "HAMED ALI SUFI SYED": "Hamed Ali Sufi Syed",
     "Muhammad Sumairuddin": "MOHAMMED SUMAIRUDDIN",
+    
 }
 
 # ─────────────────────────────────────────────────────────────

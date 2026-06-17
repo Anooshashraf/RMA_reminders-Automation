@@ -172,8 +172,12 @@ WHATSAPP_GROUP_MAP = {
     # ─────────────────────────────────────────────────────────────
     ("PALMDALE", ""):                   {"group": "Team Oxnard - Palmdale Core", "mode": "send_to_group"},
     ("PALMDALE", None):                 {"group": "Team Oxnard - Palmdale Core", "mode": "send_to_group"},
+    ("Palmdale", ""):                   {"group": "Team Oxnard - Palmdale Core", "mode": "send_to_group"},
+    ("Palmdale", None):                 {"group": "Team Oxnard - Palmdale Core", "mode": "send_to_group"},
     ("OXNARD", ""):                     {"group": "Team Oxnard - Palmdale Core", "mode": "send_to_group"},
     ("OXNARD", None):                   {"group": "Team Oxnard - Palmdale Core", "mode": "send_to_group"},
+    ("Oxnard", ""):                     {"group": "Team Oxnard - Palmdale Core", "mode": "send_to_group"},
+    ("Oxnard", None):                   {"group": "Team Oxnard - Palmdale Core", "mode": "send_to_group"},
     ("OXNARD", "Oxnard/Palmdale"):      {"group": "Team Oxnard - Palmdale Core", "mode": "send_to_group"},
     ("OXNARD/PALMDALE", ""):            {"group": "Team Oxnard - Palmdale Core", "mode": "send_to_group"},
     ("OXNARD/PALMDALE", None):          {"group": "Team Oxnard - Palmdale Core", "mode": "send_to_group"},
