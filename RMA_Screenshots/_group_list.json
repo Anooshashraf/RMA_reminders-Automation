@@ -1,104 +1,9 @@
 [
   {
-    "whatsapp_group": "AIRLINE DISTRICT - HOUSTON",
-    "send_mode": "send_to_group",
-    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\AIRLINE DISTRICT - HOUSTON.png",
-    "record_count": 25,
-    "markets": [
-      "HOUSTON"
-    ],
-    "dms": [
-      {
-        "name": "Mukram Shareef Mohammed",
-        "phone": "314-297-8900",
-        "dmNameRep": "Mukarram"
-      }
-    ]
-  },
-  {
-    "whatsapp_group": "ARIZONA SUPPORT",
-    "send_mode": "tag_all_dms",
-    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\ARIZONA SUPPORT.png",
-    "record_count": 15,
-    "markets": [
-      "ARIZONA"
-    ],
-    "dms": [
-      {
-        "name": "Akbar Uddin",
-        "phone": null,
-        "dmNameRep": null
-      },
-      {
-        "name": "Hamed Ali",
-        "phone": "(972) 502-0820",
-        "dmNameRep": "HAMED ALI SUFI"
-      },
-      {
-        "name": "Hamza Ali",
-        "phone": "901-666-0279",
-        "dmNameRep": null
-      },
-      {
-        "name": "Shoeb Naqvi",
-        "phone": "817-893-7273",
-        "dmNameRep": "Naqvi"
-      }
-    ]
-  },
-  {
-    "whatsapp_group": "ATLANTA TEAM",
-    "send_mode": "send_to_group",
-    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\ATLANTA TEAM.png",
-    "record_count": 8,
-    "markets": [
-      "GEORGIA"
-    ],
-    "dms": [
-      {
-        "name": "Ayyan Budwani",
-        "phone": "(281) 831-7135",
-        "dmNameRep": "Ayyan Budwani"
-      }
-    ]
-  },
-  {
-    "whatsapp_group": "Boston-Maine",
-    "send_mode": "send_to_group",
-    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\Boston-Maine.png",
-    "record_count": 4,
-    "markets": [
-      "BOSTON"
-    ],
-    "dms": [
-      {
-        "name": "MUHAMMAD AFZAL",
-        "phone": "(346) 888-7869",
-        "dmNameRep": "MA"
-      }
-    ]
-  },
-  {
-    "whatsapp_group": "CENTRAL DISTRICT - HOUSTON",
-    "send_mode": "send_to_group",
-    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\CENTRAL DISTRICT - HOUSTON.png",
-    "record_count": 1,
-    "markets": [
-      "HOUSTON"
-    ],
-    "dms": [
-      {
-        "name": "Zubair Hussain",
-        "phone": "(704) 267-3986",
-        "dmNameRep": "Zubair Hussain"
-      }
-    ]
-  },
-  {
     "whatsapp_group": "DALLAS_BOTH",
     "send_mode": "send_to_both_groups",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\DALLAS_BOTH.png",
-    "record_count": 18,
+    "record_count": 15,
     "markets": [
       "DALLAS"
     ],
@@ -124,7 +29,7 @@
     "whatsapp_group": "EAST DISTRICT - HOUSTON",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\EAST DISTRICT - HOUSTON.png",
-    "record_count": 2,
+    "record_count": 1,
     "markets": [
       "HOUSTON"
     ],
@@ -156,7 +61,7 @@
     "whatsapp_group": "LOS ANGELES - CENTRAL",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\LOS ANGELES - CENTRAL.png",
-    "record_count": 6,
+    "record_count": 9,
     "markets": [
       "LOS ANGELES"
     ],
@@ -169,10 +74,26 @@
     ]
   },
   {
+    "whatsapp_group": "LOS ANGELES - EAST",
+    "send_mode": "send_to_group",
+    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\LOS ANGELES - EAST.png",
+    "record_count": 1,
+    "markets": [
+      "LOS ANGELES"
+    ],
+    "dms": [
+      {
+        "name": "Abdul Rafay Ashraf",
+        "phone": "(469) 449-7852",
+        "dmNameRep": "Abdul Rafay"
+      }
+    ]
+  },
+  {
     "whatsapp_group": "LOS ANGELES - NORTH",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\LOS ANGELES - NORTH.png",
-    "record_count": 1,
+    "record_count": 4,
     "markets": [
       "LOS ANGELES"
     ],
@@ -188,7 +109,7 @@
     "whatsapp_group": "LOS ANGELES - San Bernardino",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\LOS ANGELES - San Bernardino.png",
-    "record_count": 7,
+    "record_count": 10,
     "markets": [
       "LOS ANGELES"
     ],
@@ -204,7 +125,7 @@
     "whatsapp_group": "MIAMI - Support",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\MIAMI - Support.png",
-    "record_count": 2,
+    "record_count": 4,
     "markets": [
       "PALM BEACH"
     ],
@@ -220,7 +141,7 @@
     "whatsapp_group": "Memphis Team Central",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\Memphis Team Central.png",
-    "record_count": 4,
+    "record_count": 6,
     "markets": [
       "MEMPHIS"
     ],
@@ -236,7 +157,7 @@
     "whatsapp_group": "Memphis Team North",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\Memphis Team North.png",
-    "record_count": 3,
+    "record_count": 8,
     "markets": [
       "MEMPHIS"
     ],
@@ -252,7 +173,7 @@
     "whatsapp_group": "Memphis Team South",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\Memphis Team South.png",
-    "record_count": 10,
+    "record_count": 14,
     "markets": [
       "MEMPHIS"
     ],
@@ -268,7 +189,7 @@
     "whatsapp_group": "NASHVILLE - SUPPORT",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\NASHVILLE - SUPPORT.png",
-    "record_count": 6,
+    "record_count": 8,
     "markets": [
       "NASHVILLE"
     ],
@@ -284,7 +205,7 @@
     "whatsapp_group": "NC - Durham",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\NC - Durham.png",
-    "record_count": 5,
+    "record_count": 6,
     "markets": [
       "NORTH CAROL"
     ],
@@ -300,7 +221,7 @@
     "whatsapp_group": "NC - Raleigh East",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\NC - Raleigh East.png",
-    "record_count": 3,
+    "record_count": 2,
     "markets": [
       "NORTH CAROL"
     ],
@@ -316,7 +237,7 @@
     "whatsapp_group": "NC - Raleigh West",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\NC - Raleigh West.png",
-    "record_count": 2,
+    "record_count": 1,
     "markets": [
       "NORTH CAROL"
     ],
@@ -332,7 +253,7 @@
     "whatsapp_group": "NORTH DISTRICT - HOUSTON",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\NORTH DISTRICT - HOUSTON.png",
-    "record_count": 3,
+    "record_count": 7,
     "markets": [
       "HOUSTON"
     ],
@@ -345,10 +266,26 @@
     ]
   },
   {
+    "whatsapp_group": "North Bay Area- Main",
+    "send_mode": "send_to_group",
+    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\North Bay Area- Main.png",
+    "record_count": 1,
+    "markets": [
+      "NORTH BAY AREA"
+    ],
+    "dms": [
+      {
+        "name": "Muhammad Sumairuddin",
+        "phone": "+1 (214) 228-9687",
+        "dmNameRep": "Sumair Farooqui"
+      }
+    ]
+  },
+  {
     "whatsapp_group": "Northside Denver",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\Northside Denver.png",
-    "record_count": 8,
+    "record_count": 9,
     "markets": [
       "COLORADO"
     ],
@@ -364,9 +301,8 @@
     "whatsapp_group": "Philadelphia Support",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\Philadelphia Support.png",
-    "record_count": 6,
+    "record_count": 2,
     "markets": [
-      "PHILLY",
       "PHILY"
     ],
     "dms": [
@@ -381,7 +317,7 @@
     "whatsapp_group": "Portland Oregon Main",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\Portland Oregon Main.png",
-    "record_count": 5,
+    "record_count": 10,
     "markets": [
       "OREGON"
     ],
@@ -397,7 +333,7 @@
     "whatsapp_group": "Sacramento Main",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\Sacramento Main.png",
-    "record_count": 4,
+    "record_count": 5,
     "markets": [
       "SACRAMENTO"
     ],
@@ -418,7 +354,7 @@
     "whatsapp_group": "SAN DIEGO CORE",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\SAN DIEGO CORE.png",
-    "record_count": 4,
+    "record_count": 3,
     "markets": [
       "SAN DIEGO"
     ],
@@ -434,7 +370,7 @@
     "whatsapp_group": "SAN DIEGO CORE",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\SAN DIEGO CORE.png",
-    "record_count": 4,
+    "record_count": 5,
     "markets": [
       "SAN FRANCISCO"
     ],
@@ -450,7 +386,7 @@
     "whatsapp_group": "SOUTH DISTRICT - HOUSTON",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\SOUTH DISTRICT - HOUSTON.png",
-    "record_count": 7,
+    "record_count": 11,
     "markets": [
       "HOUSTON"
     ],
@@ -466,7 +402,7 @@
     "whatsapp_group": "Southside Denver",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\Southside Denver.png",
-    "record_count": 4,
+    "record_count": 6,
     "markets": [
       "COLORADO"
     ],
@@ -482,16 +418,32 @@
     "whatsapp_group": "Team Oxnard - Palmdale Core",
     "send_mode": "send_to_group",
     "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\Team Oxnard - Palmdale Core.png",
-    "record_count": 6,
+    "record_count": 7,
     "markets": [
-      "PALMDALE",
-      "OXNARD"
+      "OXNARD",
+      "PALMDALE"
     ],
     "dms": [
       {
         "name": "Aslam Khan",
         "phone": "(830) 637-3975",
         "dmNameRep": "Aslam Khan"
+      }
+    ]
+  },
+  {
+    "whatsapp_group": "Utah Support",
+    "send_mode": "send_to_group",
+    "image": "C:\\Users\\anosha\\Desktop\\Reminder's Automation\\RMA_Screenshots\\Utah Support.png",
+    "record_count": 3,
+    "markets": [
+      "UTAH"
+    ],
+    "dms": [
+      {
+        "name": "Nur Rahman",
+        "phone": "(720) 655-6988",
+        "dmNameRep": "Nur Rahman"
       }
     ]
   }
