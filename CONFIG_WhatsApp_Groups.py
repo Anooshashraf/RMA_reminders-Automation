@@ -219,9 +219,9 @@ WHATSAPP_GROUP_MAP = {
     # ─────────────────────────────────────────────────────────────
     # SAN FRANCISCO - Shares SAN DIEGO CORE
     # ─────────────────────────────────────────────────────────────
-    ("SAN FRANCISCO", ""):              {"group": "SAN DIEGO CORE", "mode": "send_to_group", "merge_key": "SAN_DIEGO_REGION"},
-    ("SAN FRANCISCO", None):            {"group": "SAN DIEGO CORE", "mode": "send_to_group", "merge_key": "SAN_DIEGO_REGION"},
-    ("SAN FRANCISCO", "-"):             {"group": "SAN DIEGO CORE", "mode": "send_to_group", "merge_key": "SAN_DIEGO_REGION"},
+    ("SAN FRANCISCO", ""):              {"group": "San Francisco Core", "mode": "send_to_group"},
+    ("SAN FRANCISCO", None):            {"group": "San Francisco Core", "mode": "send_to_group"},
+    ("SAN FRANCISCO", "-"):             {"group": "San Francisco Core", "mode": "send_to_group"},
     
     # ─────────────────────────────────────────────────────────────
     # UTAH
@@ -254,11 +254,7 @@ SPECIAL_GROUP_CONFIGS = {
         "mode": "send_to_group",
         "description": "Shared group for Nashville region"
     },
-    "SAN_DIEGO_REGION": {
-        "groups": ["SAN DIEGO CORE"],
-        "mode": "send_to_group",
-        "description": "Shared group for San Diego region"
-    },
+    
     "SACRAMENTO_ALL": {
         "groups": ["Sacramento Main"],
         "mode": "send_to_group",

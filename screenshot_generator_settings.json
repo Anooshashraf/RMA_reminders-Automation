@@ -1,0 +1,50 @@
+{
+  "presets": {
+    "RMA / XBM / Trade-in": {
+      "excel_file": "C:\\Users\\admin\\Desktop\\RMA XBM Trade-in Consolidated2026.xlsx",
+      "sheet_name": "Sheet1",
+      "header_row": 1,
+      "is_pivot": false,
+      "mode": "group",
+      "columns": {
+        "market": "A",
+        "district": "B",
+        "dm_name": "C",
+        "store_id": "D",
+        "store_name": "E",
+        "description": "H",
+        "imei": "I",
+        "employee": "J",
+        "assurant": "K",
+        "processed_date": "L",
+        "label_type": "M",
+        "rma_number": "N",
+        "rma_date": "O",
+        "count": "P",
+        "tracking": "Q",
+        "status": "R"
+      },
+      "output_folder": "RMA_Screenshots"
+    },
+    "Accessories / Orders": {
+      "excel_file": "C:/Users/anosha/Desktop/Remainder File.xlsx",
+      "sheet_name": "Sheet1",
+      "header_row": 1,
+      "is_pivot": true,
+      "mode": "dm",
+      "columns": {
+        "market": "A",
+        "dm_name": "B",
+        "store_name": "C",
+        "order_no": "D",
+        "sku": "E",
+        "sku_desc": "F",
+        "count": "I",
+        "status": "G",
+        "age": "H"
+      },
+      "output_folder": "Accessories_Screenshots"
+    }
+  },
+  "last_used": "Accessories / Orders"
+}
