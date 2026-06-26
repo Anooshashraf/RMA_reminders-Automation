@@ -554,9 +554,9 @@ METADATA_FILE = os.path.join(OUTPUT_FOLDER, "_group_list.json")
 PROGRESS_FILE = os.path.join(OUTPUT_FOLDER, "_send_progress.json")
 
 # ⚠️ RESUME SETTINGS
-START_FROM = 2        # Change this to resume from a specific group number
+START_FROM = 21        # Change this to resume from a specific group number
 TEST_MODE = False      # True = send to your number, False = send to groups
-YOUR_NUMBER = "923108486366"  # Your WhatsApp number for testing
+YOUR_NUMBER = "923108486366"
 
 pyautogui.FAILSAFE = True
 pyautogui.PAUSE    = 0.3

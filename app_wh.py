@@ -94,18 +94,26 @@ def open_chat(target):
 
 
 def tag_mention(dm):
+    """Type @mention tag - returns True if successful, does NOT send"""
     dm_name = dm.get('dmNameRep', '')
     if not dm_name or str(dm_name).strip() in ['', '-', 'null', 'None']:
         return False
     clean = dm_name.strip().lstrip('~').strip()
     if not clean:
         return False
+    
+    # Type @ to trigger popup
     pyautogui.write('@', interval=0.05)
-    time.sleep(1.0)
+    time.sleep(0.8)
+    
+    # Type the name
     pyautogui.write(clean, interval=0.05)
     time.sleep(1.5)
+    
+    # Press Tab to select the mention (inserts it but doesn't send)
     pyautogui.press('tab')
     time.sleep(0.5)
+    
     return True
 
 
@@ -262,7 +270,7 @@ class WhatsAppSenderApp:
         self.tree.delete(*self.tree.get_children())
         for i, g in enumerate(self.group_list, 1):
             img = "✅" if g.get('image') and os.path.exists(g['image']) else "❌"
-            dms = ', '.join([d.get('dmNameRep', '?') for d in g.get('dms', [])[:5]])
+            dms = ', '.join([str(d.get('dmNameRep', '?')) for d in g.get('dms', [])[:5]])
             self.tree.insert('', tk.END, values=(i, g['whatsapp_group'], g.get('record_count', 0), img, dms))
         
         self.log(f"✅ Loaded {len(self.group_list)} groups")
@@ -297,6 +305,161 @@ class WhatsAppSenderApp:
     def stop(self):
         self.sending = False
     
+    # def send_all(self):
+    #     message = self.msg_text.get('1.0', tk.END).strip()
+    #     test_mode = self.test_var.get()
+    #     tag_dms = self.tag_var.get()
+    #     start_from = self.start_var.get()
+    #     your_number = self.num_var.get()
+        
+    #     groups_to_send = self.group_list[start_from - 1:]
+    #     total = len(self.group_list)
+    #     ok = fail = 0
+        
+    #     self.log(f"Starting: {len(groups_to_send)} groups")
+        
+    #     for idx, group in enumerate(groups_to_send, start_from):
+    #         if not self.sending:
+    #             break
+            
+    #         try:
+    #             name = group['whatsapp_group']
+    #             mode = group.get('send_mode', 'send_to_group')
+    #             dms = group.get('dms', []) if tag_dms else []
+    #             dm_images = group.get('dm_images', [])  # For Per DM mode
+    #             single_image = group.get('image', '')    # For Per Group mode
+                
+    #             self.log(f"\n[{idx}/{total}] {name}")
+    #             self.progress_var.set(f"[{idx}/{total}] {name}")
+                
+    #             # Determine targets
+    #             if test_mode:
+    #                 targets = [your_number]
+    #             elif mode == "send_to_both_groups":
+    #                 targets = ["Dallas Team South", "Dallas Team North"]
+    #             else:
+    #                 targets = [name]
+                
+    #             # Send to each target
+    #             for target in targets:
+    #                 self.log(f"  → {target}")
+    #                 open_chat(target)
+    #                 time.sleep(1.0)
+    #                 focus_whatsapp()
+    #                 time.sleep(0.5)
+                    
+    #                 # ═══════════════════════════════════════════
+    #                 #  PER DM MODE (Accessories): Multiple images
+    #                 # ═══════════════════════════════════════════
+                    
+    #                 if dm_images:
+    #                     self.log(f"    📎 Sending {len(dm_images)} DM images...")
+                        
+    #                     for dm_img in dm_images:
+    #                         dm_img_path = dm_img.get('image', '')
+    #                         dm_name = dm_img.get('name', '')
+                            
+    #                         if not dm_img_path or not os.path.exists(dm_img_path):
+    #                             self.log(f"    ⚠️ Image missing for {dm_name}")
+    #                             continue
+                            
+    #                         # Find this DM's tag info
+    #                         dm_tag_info = None
+    #                         if tag_dms:
+    #                             for d in dms:
+    #                                 if d.get('name') == dm_name:
+    #                                     dm_tag_info = d
+    #                                     break
+                            
+    #                         # Tag the DM first
+    #                         if dm_tag_info:
+    #                             tag_mention(dm_tag_info)
+    #                             pyautogui.write(' ', interval=0.05)
+    #                             time.sleep(0.3)
+                            
+    #                         # Send their image
+    #                         copy_image(dm_img_path)
+    #                         pyautogui.hotkey('ctrl', 'v')
+    #                         time.sleep(3.0)
+    #                         pyautogui.press('enter')
+    #                         time.sleep(2.0)
+    #                         self.log(f"      ✅ {dm_name}")
+                        
+    #                     # Send the common message after all images
+    #                     if message:
+    #                         copy_text(message)
+    #                         pyautogui.hotkey('ctrl', 'v')
+    #                         time.sleep(1.0)
+    #                         pyautogui.press('enter')
+    #                         time.sleep(2.0)
+                        
+    #                     self.log(f"    ✅ All {len(dm_images)} DMs sent")
+                    
+    #                 # ═══════════════════════════════════════════
+    #                 #  PER GROUP MODE (RMA): Single image
+    #                 # ═══════════════════════════════════════════
+                    
+    #                 else:
+    #                     tagged = 0
+                        
+    #                     # Send single image
+    #                     if single_image and os.path.exists(single_image):
+    #                         copy_image(single_image)
+    #                         pyautogui.hotkey('ctrl', 'v')
+    #                         time.sleep(3.0)
+    #                         self.log(f"    📎 Image sent")
+                        
+    #                     # Tag all DMs
+    #                     if dms and tag_dms:
+    #                         self.log(f"    👥 Tagging {len(dms)} DMs...")
+    #                         valid = [d for d in dms if d.get('dmNameRep') and str(d['dmNameRep']).strip() not in ['', '-', 'null', 'None']]
+    #                         for i, dm in enumerate(valid):
+    #                             if tag_mention(dm):
+    #                                 tagged += 1
+    #                                 if i < len(valid) - 1:
+    #                                     pyautogui.write('  ', interval=0.05)
+    #                                     time.sleep(0.2)
+    #                         if tagged > 0:
+    #                             pyautogui.press('enter')
+    #                             time.sleep(0.2)
+    #                             pyautogui.press('enter')
+    #                             time.sleep(0.3)
+                        
+    #                     # Send message
+    #                     if message:
+    #                         copy_text(message)
+    #                         pyautogui.hotkey('ctrl', 'v')
+    #                         time.sleep(1.0)
+    #                         pyautogui.press('enter')
+    #                         time.sleep(2.0)
+                        
+    #                     self.log(f"    ✅ Sent ({tagged} tags)")
+                
+    #             ok += 1
+    #             self.settings['start_from'] = idx + 1
+    #             save_settings(self.settings)
+    #             time.sleep(2.0)
+                
+    #         except pyautogui.FailSafeException:
+    #             self.log(f"\n🛑 ABORTED at group #{idx}")
+    #             self.log(f"   To resume, set Start from # = {idx}")
+    #             self.settings['start_from'] = idx
+    #             save_settings(self.settings)
+    #             break
+    #         except KeyboardInterrupt:
+    #             self.log(f"\n🛑 ABORTED at group #{idx}")
+    #             self.log(f"   To resume, set Start from # = {idx}")
+    #             self.settings['start_from'] = idx
+    #             save_settings(self.settings)
+    #             break
+    #         except Exception as e:
+    #             self.log(f"  ❌ Error: {e}")
+    #             import traceback
+    #             traceback.print_exc()
+    #             fail += 1
+    #             time.sleep(2)
+        
+    #     self.root.after(0, self.done, ok, fail)
     def send_all(self):
         message = self.msg_text.get('1.0', tk.END).strip()
         test_mode = self.test_var.get()
@@ -318,8 +481,8 @@ class WhatsAppSenderApp:
                 name = group['whatsapp_group']
                 mode = group.get('send_mode', 'send_to_group')
                 dms = group.get('dms', []) if tag_dms else []
-                dm_images = group.get('dm_images', [])  # For Per DM mode
-                single_image = group.get('image', '')    # For Per Group mode
+                dm_images = group.get('dm_images', [])
+                single_image = group.get('image', '')
                 
                 self.log(f"\n[{idx}/{total}] {name}")
                 self.progress_var.set(f"[{idx}/{total}] {name}")
@@ -341,18 +504,19 @@ class WhatsAppSenderApp:
                     time.sleep(0.5)
                     
                     # ═══════════════════════════════════════════
-                    #  PER DM MODE (Accessories): Multiple images
+                    #  PER DM MODE: Image + Caption (ONE message)
+                    #  Caption = @Tag + Text
                     # ═══════════════════════════════════════════
                     
                     if dm_images:
-                        self.log(f"    📎 Sending {len(dm_images)} DM images...")
+                        total_sent = 0
                         
                         for dm_img in dm_images:
                             dm_img_path = dm_img.get('image', '')
                             dm_name = dm_img.get('name', '')
                             
                             if not dm_img_path or not os.path.exists(dm_img_path):
-                                self.log(f"    ⚠️ Image missing for {dm_name}")
+                                self.log(f"    ⚠️ Skipping {dm_name} - no image")
                                 continue
                             
                             # Find this DM's tag info
@@ -363,69 +527,82 @@ class WhatsAppSenderApp:
                                         dm_tag_info = d
                                         break
                             
-                            # Tag the DM first
+                            # Build caption: @Tag + Message
+                            tag_part = ""
                             if dm_tag_info:
-                                tag_mention(dm_tag_info)
-                                pyautogui.write(' ', interval=0.05)
-                                time.sleep(0.3)
+                                clean_tag = dm_tag_info.get('dmNameRep', '').strip().lstrip('~').strip()
+                                if clean_tag:
+                                    tag_part = f"@{clean_tag}"
                             
-                            # Send their image
+                            if tag_part and message:
+                                full_caption = f"{tag_part}\n\n{message}"
+                            elif tag_part:
+                                full_caption = tag_part
+                            else:
+                                full_caption = message if message else ""
+                            
+                            # Step 1: Paste the image
                             copy_image(dm_img_path)
                             pyautogui.hotkey('ctrl', 'v')
                             time.sleep(3.0)
+                            
+                            # Step 2: Add caption text (image + caption = ONE message)
+                            if full_caption:
+                                copy_text(full_caption)
+                                pyautogui.hotkey('ctrl', 'v')
+                                time.sleep(1.0)
+                            
+                            # Step 3: Send as ONE message
                             pyautogui.press('enter')
                             time.sleep(2.0)
+                            
+                            total_sent += 1
                             self.log(f"      ✅ {dm_name}")
                         
-                        # Send the common message after all images
-                        if message:
-                            copy_text(message)
-                            pyautogui.hotkey('ctrl', 'v')
-                            time.sleep(1.0)
-                            pyautogui.press('enter')
-                            time.sleep(2.0)
-                        
-                        self.log(f"    ✅ All {len(dm_images)} DMs sent")
+                        self.log(f"    ✅ {total_sent} messages sent")
                     
                     # ═══════════════════════════════════════════
-                    #  PER GROUP MODE (RMA): Single image
+                    #  PER GROUP MODE (RMA): Tags + Text + Image
+                    #  ALL IN ONE MESSAGE
                     # ═══════════════════════════════════════════
                     
                     else:
                         tagged = 0
                         
-                        # Send single image
-                        if single_image and os.path.exists(single_image):
-                            copy_image(single_image)
-                            pyautogui.hotkey('ctrl', 'v')
-                            time.sleep(3.0)
-                            self.log(f"    📎 Image sent")
-                        
-                        # Tag all DMs
+                        # Step 1: Tag all DMs (clickable mentions)
                         if dms and tag_dms:
-                            self.log(f"    👥 Tagging {len(dms)} DMs...")
                             valid = [d for d in dms if d.get('dmNameRep') and str(d['dmNameRep']).strip() not in ['', '-', 'null', 'None']]
                             for i, dm in enumerate(valid):
                                 if tag_mention(dm):
                                     tagged += 1
                                     if i < len(valid) - 1:
-                                        pyautogui.write('  ', interval=0.05)
+                                        pyautogui.write(' ', interval=0.05)
                                         time.sleep(0.2)
+                            
+                            # Use Shift+Enter for newline (does NOT send the message)
                             if tagged > 0:
-                                pyautogui.press('enter')
+                                pyautogui.hotkey('shift', 'enter')
                                 time.sleep(0.2)
-                                pyautogui.press('enter')
+                                pyautogui.hotkey('shift', 'enter')
                                 time.sleep(0.3)
                         
-                        # Send message
+                        # Step 2: Paste message text (adds to same input box)
                         if message:
                             copy_text(message)
                             pyautogui.hotkey('ctrl', 'v')
-                            time.sleep(1.0)
-                            pyautogui.press('enter')
-                            time.sleep(2.0)
+                            time.sleep(0.5)
                         
-                        self.log(f"    ✅ Sent ({tagged} tags)")
+                        # Step 3: Paste image (adds to same message)
+                        if single_image and os.path.exists(single_image):
+                            copy_image(single_image)
+                            pyautogui.hotkey('ctrl', 'v')
+                            time.sleep(3.0)
+                        
+                        # Step 4: NOW send everything as ONE message
+                        pyautogui.press('enter')
+                        time.sleep(2.0)
+                        
+                        self.log(f"    ✅ Sent ({tagged} tags + text + image in ONE message)")
                 
                 ok += 1
                 self.settings['start_from'] = idx + 1
@@ -452,7 +629,7 @@ class WhatsAppSenderApp:
                 time.sleep(2)
         
         self.root.after(0, self.done, ok, fail)
-
+     
 
     def done(self, ok, fail):
         self.sending = False

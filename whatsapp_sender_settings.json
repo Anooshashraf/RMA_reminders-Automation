@@ -1,7 +1,7 @@
 {
   "your_number": "+92 310 8486366",
   "test_mode": true,
-  "start_from": 4,
-  "tag_dms": true,
-  "metadata_folder": "C:/Users/anosha/Desktop/Reminder's Automation/Accessories_Screenshots"
+  "start_from": 6,
+  "tag_dms": false,
+  "metadata_folder": "C:/Users/anosha/Desktop/Reminder's Automation/RMA_Screenshots"
 }
