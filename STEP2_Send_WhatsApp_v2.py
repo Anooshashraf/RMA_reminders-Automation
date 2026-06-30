@@ -1,522 +1,5 @@
 
 
-# """
-# =====================================================================
-#   STEP 2 — SEND WHATSAPP MESSAGES (FIXED @MENTION TAGS)
-#   RMA / XBM / Trade-in Pending Shipments
-  
-#   FIXED: Verified @mention tagging with phone number verification
-  
-#   HOW IT WORKS:
-#   - Types @ to trigger popup (CONFIRMED WORKING)
-#   - Types dmNameRep to filter suggestions
-#   - Verifies match using last 4 digits of Contact Number
-#   - Selects correct suggestion and inserts as clickable mention
-#   - Then sends caption
-  
-#   IMPORTANT: Keep WhatsApp Desktop MAXIMIZED!
-# =====================================================================
-# """
-
-# import pyautogui
-# import pyperclip
-# import time
-# import os
-# import json
-# import re
-# from PIL import Image
-# import win32clipboard
-# import win32con
-# import io
-
-# # ─────────────────────────────────────────────────────────────
-# #  CONFIGURATION
-# # ─────────────────────────────────────────────────────────────
-
-# BASE_DIR      = os.path.dirname(os.path.abspath(__file__))
-# OUTPUT_FOLDER = os.path.join(BASE_DIR, "RMA_Screenshots")
-# METADATA_FILE = os.path.join(OUTPUT_FOLDER, "_group_list.json")
-
-# pyautogui.FAILSAFE = True
-# pyautogui.PAUSE    = 0.3
-
-# # ─────────────────────────────────────────────────────────────
-# #  CLIPBOARD
-# # ─────────────────────────────────────────────────────────────
-
-# def copy_text(text):
-#     pyperclip.copy(text)
-#     time.sleep(0.3)
-
-# def copy_image(image_path):
-#     img = Image.open(image_path).convert("RGB")
-#     buf = io.BytesIO()
-#     img.save(buf, "BMP")
-#     bmp = buf.getvalue()[14:]
-#     buf.close()
-#     win32clipboard.OpenClipboard()
-#     win32clipboard.EmptyClipboard()
-#     win32clipboard.SetClipboardData(win32con.CF_DIB, bmp)
-#     win32clipboard.CloseClipboard()
-#     time.sleep(0.5)
-
-# # ─────────────────────────────────────────────────────────────
-# #  FORMAT CAPTION (without tags - tags will be real mentions)
-# # ─────────────────────────────────────────────────────────────
-
-# def format_caption():
-#     return (
-#         "🚨 URGENT REMINDER 🚨\n\n"
-#         "Important reminder that the RMA, XBM & TRADE-IN shipments "
-#         "listed are still pending and are approaching the deadline ⏳\n\n"
-#         "⚠️ Delayed shipment may result in chargebacks, so we kindly "
-#         "request you to prioritize shipping these devices as soon as "
-#         "possible 🚚📦\n\n"
-#         "If you need any support, clarification, or assistance, please "
-#         "feel free to reach out — we're here to help 🤝\n\n"
-#         "✨"
-#     )
-
-# # ─────────────────────────────────────────────────────────────
-# #  OPEN GROUP
-# # ─────────────────────────────────────────────────────────────
-
-# def open_group(group_name):
-#     """Open a WhatsApp group by searching for it"""
-#     print(f"  🔍 Opening: {group_name}")
-    
-#     # Step 1: Open search with Ctrl+F
-#     pyautogui.hotkey('ctrl', 'f')
-#     time.sleep(1.5)
-    
-#     # Step 2: Clear search box
-#     pyautogui.hotkey('ctrl', 'a')
-#     time.sleep(0.3)
-#     pyautogui.press('backspace')
-#     time.sleep(0.3)
-    
-#     # Step 3: Type group name
-#     copy_text(group_name)
-#     pyautogui.hotkey('ctrl', 'v')
-#     time.sleep(2.5)
-    
-#     # Step 4: Wait for search results to appear
-#     time.sleep(1.0)
-    
-#     # Step 5: Press Down to select first result
-#     pyautogui.press('down')
-#     time.sleep(0.5)
-    
-#     # Step 6: Press Enter to open the chat
-#     pyautogui.press('enter')
-#     time.sleep(3.0)  # Wait longer for chat to fully load
-    
-#     print(f"  ✅ Opened: {group_name}")
-
-# # def extract_last4(phone):
-# #     """Extract last 4 digits from phone number"""
-# #     digits = re.sub(r'[^\d]', '', str(phone))
-# #     return digits[-4:] if len(digits) >= 4 else None
-
-# # def type_verified_mention(dm, test_mode=False):
-# #     """
-# #     Type a verified @mention tag.
-    
-# #     1. Types @ (CONFIRMED WORKING with pyautogui.write)
-# #     2. Waits for popup
-# #     3. Types dmNameRep to filter
-# #     4. Uses Down arrows to navigate to correct match
-# #     5. Presses Enter to insert clickable mention
-    
-# #     Args:
-# #         dm: dict with 'dmNameRep' and 'phone' keys
-# #         test_mode: if True, prints extra debug info
-# #     """
-# #     dm_name = dm.get('dmNameRep', '')
-# #     phone = dm.get('phone', '')
-    
-# #     if not dm_name or str(dm_name).strip() in ['', '-', 'null', 'None']:
-# #         return False
-    
-# #     clean_name = dm_name.strip().lstrip('~').strip()
-# #     target_last4 = extract_last4(phone)
-    
-# #     print(f"      @{clean_name}" + (f" (📱 {target_last4})" if target_last4 else ""))
-    
-# #     # STEP 1: Type @ to trigger popup
-# #     # CONFIRMED WORKING: pyautogui.write('@') triggers the popup
-# #     pyautogui.write('@', interval=0.05)
-# #     time.sleep(1.5)  # Wait for popup to appear
-    
-# #     # STEP 2: Type dmNameRep to filter suggestions
-# #     pyautogui.write(clean_name, interval=0.05)
-# #     time.sleep(2.0)  # Wait for suggestions to filter
-    
-# #     # STEP 3: Navigate to correct match
-# #     # Press Down to select first suggestion
-# #     pyautogui.press('down')
-# #     time.sleep(0.3)
-    
-# #     # STEP 4: Press Enter to insert the clickable mention
-# #     pyautogui.press('enter')
-# #     time.sleep(0.5)
-    
-# #     # The mention is now inserted as a clickable link!
-# #     if test_mode:
-# #         print(f"        ✅ Mention inserted")
-    
-# #     return True
-
-
-# def extract_last4(phone):
-#     """Extract last 4 digits from phone number"""
-#     if not phone:
-#         return None
-#     digits = re.sub(r'[^\d]', '', str(phone))
-#     return digits[-4:] if len(digits) >= 4 else None
-
-# def verify_phone_match(expected_phone):
-#     """
-#     Verify the selected mention matches the expected phone number.
-#     After pressing Tab to select a mention, WhatsApp shows the contact info.
-#     We check if the expected last 4 digits appear in the inserted mention.
-    
-#     Since we can't easily read the popup text, we use a different approach:
-#     - We trust that pressing Down on the first filtered suggestion is correct
-#     - But we verify by checking if the mention was actually inserted
-#     """
-#     # WhatsApp doesn't expose the mention text easily after insertion
-#     # We'll verify by checking if something was inserted (the @mention)
-#     # The actual phone matching happens in the popup which we can't read programmatically
-#     return True  # We trust the first suggestion if we can't verify
-
-# # def type_verified_mention(dm):
-# #     """
-# #     Type a verified @mention tag with phone number verification.
-    
-# #     Process:
-# #     1. Type @ to trigger popup
-# #     2. Type dmNameRep to filter
-# #     3. If phone available, verify by last 4 digits
-# #     4. Select matching suggestion with Tab
-# #     5. Return True if successful, False if failed
-    
-# #     Returns:
-# #         bool: True if mention was inserted successfully, False otherwise
-# #     """
-# #     dm_name = dm.get('dmNameRep', '')
-# #     phone = dm.get('phone', '')
-    
-# #     # Skip empty/invalid names
-# #     if not dm_name or str(dm_name).strip() in ['', '-', 'null', 'None']:
-# #         return False
-    
-# #     clean_name = dm_name.strip().lstrip('~').strip()
-# #     if not clean_name:
-# #         return False
-    
-# #     target_last4 = extract_last4(phone)
-    
-# #     print(f"      Tagging: @{clean_name}", end="")
-# #     if target_last4:
-# #         print(f" (📱{target_last4})", end="")
-# #     print()
-    
-# #     try:
-# #         # Step 1: Type @ to trigger popup
-# #         pyautogui.write('@', interval=0.05)
-# #         time.sleep(1.5)
-        
-# #         # Step 2: Type name to filter suggestions
-# #         pyautogui.write(clean_name, interval=0.05)
-# #         time.sleep(2.0)
-        
-# #         # Step 3: Select first suggestion
-# #         pyautogui.press('down')
-# #         time.sleep(0.5)
-        
-# #         # Step 4: Press TAB to insert the mention
-# #         pyautogui.press('tab')
-# #         time.sleep(0.5)
-        
-# #         # Step 5: Verify mention was inserted
-# #         # We check if the @ symbol and name appear in the input
-# #         # This is a basic verification - the mention should be a clickable link
-        
-# #         # If we have a phone number, try to verify the match
-# #         if target_last4:
-# #             # Since we can't read the WhatsApp popup directly,
-# #             # we trust that typing the exact dmNameRep filters correctly
-# #             # and the first suggestion is the right person
-# #             print(f"        ✅ Mention inserted (verified by name match)")
-# #         else:
-# #             print(f"        ⚠️  Mention inserted (no phone to verify)")
-        
-# #         return True
-        
-# #     except Exception as e:
-# #         print(f"        ❌ Failed: {e}")
-# #         return False
-
-
-# def type_verified_mention(dm):
-#     """
-#     Type a verified @mention tag.
-    
-#     HANDLES NAMES WITH SPACES:
-#     - "Ayan Budhwani" -> types "Ayan" first, then continues with "Budhwani"
-#     - "HAMED ALI SUFI" -> types "HAMED" first, waits for popup, continues
-    
-#     WhatsApp filters suggestions as you type, so typing incrementally works.
-#     """
-#     dm_name = dm.get('dmNameRep', '')
-#     phone = dm.get('phone', '')
-    
-#     if not dm_name or str(dm_name).strip() in ['', '-', 'null', 'None']:
-#         return False
-    
-#     clean_name = dm_name.strip().lstrip('~').strip()
-#     if not clean_name:
-#         return False
-    
-#     target_last4 = extract_last4(phone)
-    
-#     print(f"      Tagging: @{clean_name}", end="")
-#     if target_last4:
-#         print(f" (📱{target_last4})", end="")
-#     print()
-    
-#     try:
-#         # Step 1: Type @ to trigger popup
-#         pyautogui.write('@', interval=0.05)
-#         time.sleep(1.5)  # Wait for popup to appear
-#         print(f"        @ typed, popup should appear")
-        
-#         # Step 2: Handle names with spaces
-#         if ' ' in clean_name:
-#             # Split name into words
-#             words = clean_name.split()
-#             print(f"        Multi-word name: {words}")
-            
-#             # Type first word
-#             first_word = words[0]
-#             print(f"        Typing first word: '{first_word}'")
-#             pyautogui.write(first_word, interval=0.05)
-#             time.sleep(1.0)  # Wait for initial filter
-            
-#             # Type remaining words one by one
-#             for word in words[1:]:
-#                 # Add space
-#                 pyautogui.write(' ', interval=0.05)
-#                 time.sleep(0.3)
-#                 # Type the word
-#                 print(f"        Typing: '{word}'")
-#                 pyautogui.write(word, interval=0.05)
-#                 time.sleep(0.8)  # Wait for filter to update
-            
-#             # Final wait for suggestions to settle
-#             time.sleep(1.5)
-#         else:
-#             # Single word name - type all at once
-#             print(f"        Single word: '{clean_name}'")
-#             pyautogui.write(clean_name, interval=0.05)
-#             time.sleep(2.0)  # Wait for suggestions
-        
-#         # Step 3: Select first suggestion with Down arrow
-#         print(f"        Pressing Down to select...")
-#         pyautogui.press('down')
-#         time.sleep(0.5)
-        
-#         # Step 4: Press TAB to insert the clickable mention
-#         # print(f"        Pressing Tab to insert...")
-#         # pyautogui.press('tab')
-#         # time.sleep(0.5)
-        
-#         print(f"        ✅ Mention inserted: @{clean_name}")
-#         return True
-        
-#     except Exception as e:
-#         print(f"        ❌ Failed: {e}")
-#         return False
-
-
-
-# def send_reminder(group_data, idx, total):
-#     name      = group_data.get('whatsapp_group', '')
-#     img       = group_data.get('image', '')
-#     count     = group_data.get('record_count', 0)
-#     markets   = group_data.get('markets', [])
-#     send_mode = group_data.get('send_mode', 'send_to_group')
-#     dms       = group_data.get('dms', [])
-
-#     print(f"\n{'─'*55}")
-#     print(f"[{idx}/{total}] {name}  ({count} records)")
-#     print(f"  Mode: {send_mode} | Markets: {', '.join(markets)}")
-
-#     caption = format_caption()
-    
-#     # Get DMs to tag (real verified mentions)
-#     tagged_dms = [
-#         d for d in dms
-#         if d.get('dmNameRep') and str(d.get('dmNameRep')).strip() not in ['','-','null','None']
-#     ]
-    
-#     if tagged_dms:
-#         names = [d['dmNameRep'] for d in tagged_dms]
-#         print(f"  Tagging: {', '.join(names)}")
-#     else:
-#         print(f"  No DMs to tag")
-
-#     # Determine targets
-#     if send_mode == "send_to_both_groups":
-#         targets = ["Dallas Team South", "Dallas Team North"]
-#     else:
-#         targets = [name]
-
-#     # Send to each target
-#     for target in targets:
-#         print(f"\n  → Processing: {target}")
-        
-#         # Open group
-#         open_group(target)
-#         time.sleep(1.0)
-        
-#         # Send image with caption
-#         if img and os.path.exists(img):
-#             print(f"    📎 Sending image...")
-            
-#             # Paste image
-#             copy_image(img)
-#             pyautogui.hotkey('ctrl', 'v')
-#             time.sleep(3.0)
-            
-#             # Add verified @mentions before caption
-#             if tagged_dms:
-#                 print(f"    👥 Adding verified mentions...")
-#                 for dm in tagged_dms:
-#                     type_verified_mention(dm)
-#                     pyautogui.write(' ', interval=0.05)  # Space between mentions
-#                     time.sleep(0.3)
-                
-#                 # Line break after mentions
-#                 pyautogui.hotkey('shift', 'enter')
-#                 time.sleep(0.2)
-#                 pyautogui.hotkey('shift', 'enter')
-#                 time.sleep(0.2)
-            
-#             # Add caption text
-#             copy_text(caption)
-#             pyautogui.hotkey('ctrl', 'v')
-#             time.sleep(1.0)
-            
-#             # Send
-#             pyautogui.press('enter')
-#             time.sleep(3.0)
-#             print(f"    ✅ Image + mentions + caption sent")
-#         else:
-#             print(f"    📝 No image - text only")
-            
-#             # Type verified mentions
-#             if tagged_dms:
-#                 print(f"    👥 Adding verified mentions...")
-#                 for dm in tagged_dms:
-#                     type_verified_mention(dm)
-#                     pyautogui.write(' ', interval=0.05)
-#                     time.sleep(0.3)
-                
-#                 pyautogui.hotkey('shift', 'enter')
-#                 time.sleep(0.2)
-#                 pyautogui.hotkey('shift', 'enter')
-#                 time.sleep(0.2)
-            
-#             # Add caption
-#             copy_text(caption)
-#             pyautogui.hotkey('ctrl', 'v')
-#             time.sleep(0.5)
-            
-#             # Send
-#             pyautogui.press('enter')
-#             time.sleep(2.0)
-#             print(f"    ✅ Mentions + caption sent")
-        
-#         print(f"  ✅ Done: {target}")
-#         time.sleep(2.0)
-
-# # ─────────────────────────────────────────────────────────────
-# #  MAIN
-# # ─────────────────────────────────────────────────────────────
-
-# def main():
-#     print("=" * 60)
-#     print("  STEP 2 — Send WhatsApp Messages (Verified @Mentions)")
-#     print("=" * 60)
-
-#     if not os.path.exists(METADATA_FILE):
-#         print(f"\n❌ Metadata not found. Run STEP1 first!")
-#         input("\nPress Enter to exit...")
-#         return
-
-#     with open(METADATA_FILE) as f:
-#         group_list = json.load(f)
-
-#     total = len(group_list)
-#     print(f"\n📊 Loaded {total} groups\n")
-
-#     missing = sum(1 for g in group_list if g.get('image') and not os.path.exists(g['image']))
-#     if missing:
-#         print(f"⚠️  {missing} image(s) missing\n")
-
-#     print("─" * 60)
-#     print("INSTRUCTIONS:")
-#     print("  1. Make sure WhatsApp Desktop is OPEN and MAXIMIZED")
-#     print("  2. Press Enter below")
-#     print("  3. You have 5 seconds to CLICK on WhatsApp Desktop")
-#     print("  4. Keep hands off mouse and keyboard")
-#     print("  5. Move mouse to TOP-LEFT corner at any time to stop")
-#     print("─" * 60)
-#     input("\nPress Enter to start...")
-
-#     print("\nClick on WhatsApp Desktop NOW!")
-#     for i in range(5, 0, -1):
-#         print(f"  Starting in {i}...", end="\r")
-#         time.sleep(1)
-#     print("\n\nGO!\n")
-
-#     ok = fail = 0
-
-#     for idx, group in enumerate(group_list, 1):
-#         try:
-#             send_reminder(group, idx, total)
-#             ok += 1
-#             time.sleep(3.0)
-
-#         except pyautogui.FailSafeException:
-#             print("\n🛑 Stopped by user")
-#             break
-#         except KeyboardInterrupt:
-#             print("\n🛑 Stopped by Ctrl+C")
-#             break
-#         except Exception as e:
-#             print(f"  ❌ Error: {e}")
-#             import traceback
-#             traceback.print_exc()
-#             fail += 1
-#             time.sleep(2)
-
-#     print("\n" + "=" * 60)
-#     print(f"✅ Sent   : {ok}")
-#     print(f"❌ Failed : {fail}")
-#     print(f"Total     : {total}")
-#     print("=" * 60)
-#     print(f"\n📱 Check WhatsApp groups for clickable @mentions!")
-#     input("\nPress Enter to exit...")
-
-
-# if __name__ == "__main__":
-#     main()
-
-
-
 
 """
 =====================================================================
@@ -554,7 +37,7 @@ METADATA_FILE = os.path.join(OUTPUT_FOLDER, "_group_list.json")
 PROGRESS_FILE = os.path.join(OUTPUT_FOLDER, "_send_progress.json")
 
 # ⚠️ RESUME SETTINGS
-START_FROM = 21        # Change this to resume from a specific group number
+START_FROM = 1        # Change this to resume from a specific group number
 TEST_MODE = False      # True = send to your number, False = send to groups
 YOUR_NUMBER = "923108486366"
 
@@ -724,15 +207,92 @@ def extract_last4(phone):
 #         return False
 
 
+# def type_verified_mention(dm):
+#     """
+#     Type a verified @mention tag.
+    
+#     HANDLES NAMES WITH SPACES:
+#     - "Ayan Budhwani" -> types "Ayan" first, then continues with "Budhwani"
+#     - "HAMED ALI SUFI" -> types "HAMED" first, waits for popup, continues
+    
+#     WhatsApp filters suggestions as you type, so typing incrementally works.
+#     """
+#     dm_name = dm.get('dmNameRep', '')
+#     phone = dm.get('phone', '')
+    
+#     if not dm_name or str(dm_name).strip() in ['', '-', 'null', 'None']:
+#         return False
+    
+#     clean_name = dm_name.strip().lstrip('~').strip()
+#     if not clean_name:
+#         return False
+    
+#     target_last4 = extract_last4(phone)
+    
+#     print(f"      Tagging: @{clean_name}", end="")
+#     if target_last4:
+#         print(f" (📱{target_last4})", end="")
+#     print()
+    
+#     try:
+#         # Step 1: Type @ to trigger popup
+#         pyautogui.write('@', interval=0.05)
+#         time.sleep(1.5)  # Wait for popup to appear
+#         print(f"        @ typed, popup should appear")
+        
+#         # Step 2: Handle names with spaces
+#         if ' ' in clean_name:
+#             # Split name into words
+#             words = clean_name.split()
+#             print(f"        Multi-word name: {words}")
+            
+#             # Type first word
+#             first_word = words[0]
+#             print(f"        Typing first word: '{first_word}'")
+#             pyautogui.write(first_word, interval=0.05)
+#             time.sleep(1.0)  # Wait for initial filter
+            
+#             # Type remaining words one by one
+#             for word in words[1:]:
+#                 # Add space
+#                 pyautogui.write(' ', interval=0.05)
+#                 time.sleep(0.3)
+#                 # Type the word
+#                 print(f"        Typing: '{word}'")
+#                 pyautogui.write(word, interval=0.05)
+#                 time.sleep(0.8)  # Wait for filter to update
+            
+#             # Final wait for suggestions to settle
+#             time.sleep(1.5)
+#         else:
+#             # Single word name - type all at once
+#             print(f"        Single word: '{clean_name}'")
+#             pyautogui.write(clean_name, interval=0.05)
+#             time.sleep(2.0)  # Wait for suggestions
+        
+#         # Step 3: Select first suggestion with Down arrow
+#         # print(f"        Pressing Down to select...")
+#         # pyautogui.press('down')
+#         # time.sleep(0.5)
+        
+#         # Step 4: Press TAB to insert the clickable mention
+#         print(f"        Pressing Tab to insert...")
+#         pyautogui.press('enter')  # Using Enter instead of Tab for better reliability
+#         time.sleep(0.5)
+        
+#         print(f"        ✅ Mention inserted: @{clean_name}")
+#         return True
+        
+#     except Exception as e:
+#         print(f"        ❌ Failed: {e}")
+#         return False
+
+
+
 def type_verified_mention(dm):
     """
     Type a verified @mention tag.
-    
-    HANDLES NAMES WITH SPACES:
-    - "Ayan Budhwani" -> types "Ayan" first, then continues with "Budhwani"
-    - "HAMED ALI SUFI" -> types "HAMED" first, waits for popup, continues
-    
-    WhatsApp filters suggestions as you type, so typing incrementally works.
+    Uses Tab to insert WITHOUT sending.
     """
     dm_name = dm.get('dmNameRep', '')
     phone = dm.get('phone', '')
@@ -752,49 +312,27 @@ def type_verified_mention(dm):
     print()
     
     try:
-        # Step 1: Type @ to trigger popup
+        # Type @ to trigger popup
         pyautogui.write('@', interval=0.05)
-        time.sleep(1.5)  # Wait for popup to appear
-        print(f"        @ typed, popup should appear")
+        time.sleep(1.5)
         
-        # Step 2: Handle names with spaces
+        # Handle names with spaces
         if ' ' in clean_name:
-            # Split name into words
             words = clean_name.split()
-            print(f"        Multi-word name: {words}")
-            
-            # Type first word
-            first_word = words[0]
-            print(f"        Typing first word: '{first_word}'")
-            pyautogui.write(first_word, interval=0.05)
-            time.sleep(1.0)  # Wait for initial filter
-            
-            # Type remaining words one by one
+            pyautogui.write(words[0], interval=0.05)
+            time.sleep(1.0)
             for word in words[1:]:
-                # Add space
                 pyautogui.write(' ', interval=0.05)
                 time.sleep(0.3)
-                # Type the word
-                print(f"        Typing: '{word}'")
                 pyautogui.write(word, interval=0.05)
-                time.sleep(0.8)  # Wait for filter to update
-            
-            # Final wait for suggestions to settle
+                time.sleep(0.8)
             time.sleep(1.5)
         else:
-            # Single word name - type all at once
-            print(f"        Single word: '{clean_name}'")
             pyautogui.write(clean_name, interval=0.05)
-            time.sleep(2.0)  # Wait for suggestions
+            time.sleep(2.0)
         
-        # Step 3: Select first suggestion with Down arrow
-        # print(f"        Pressing Down to select...")
-        # pyautogui.press('down')
-        # time.sleep(0.5)
-        
-        # Step 4: Press TAB to insert the clickable mention
-        print(f"        Pressing Tab to insert...")
-        pyautogui.press('enter')  # Using Enter instead of Tab for better reliability
+        # Press Tab to insert mention (DOES NOT SEND)
+        pyautogui.press('tab')
         time.sleep(0.5)
         
         print(f"        ✅ Mention inserted: @{clean_name}")
@@ -803,6 +341,8 @@ def type_verified_mention(dm):
     except Exception as e:
         print(f"        ❌ Failed: {e}")
         return False
+
+
 
 # ─────────────────────────────────────────────────────────────
 #  SEND ONE GROUP
@@ -822,7 +362,6 @@ def send_reminder(group_data, idx, total):
 
     caption = format_caption()
     
-    # Get DMs to tag
     tagged_dms = [
         d for d in dms
         if d.get('dmNameRep') and str(d.get('dmNameRep')).strip() not in ['','-','null','None']
@@ -834,7 +373,6 @@ def send_reminder(group_data, idx, total):
     else:
         print(f"  No DMs to tag")
 
-    # Determine targets
     if TEST_MODE:
         targets = [YOUR_NUMBER]
     elif send_mode == "send_to_both_groups":
@@ -842,14 +380,17 @@ def send_reminder(group_data, idx, total):
     else:
         targets = [name]
 
-    # Send to each target
     for target in targets:
         print(f"\n  → Processing: {target}")
         
         open_group(target)
         time.sleep(1.0)
         
-        # Send image with caption
+        # Click on the message input box to ensure focus
+        w, h = pyautogui.size()
+        pyautogui.click(w // 2, h - 100)  # Click near bottom where input box is
+        time.sleep(0.5)
+        
         if img and os.path.exists(img):
             print(f"    📎 Sending image...")
             
@@ -859,11 +400,12 @@ def send_reminder(group_data, idx, total):
             
             if tagged_dms:
                 print(f"    👥 Adding verified mentions...")
-                for dm in tagged_dms:
+                for i, dm in enumerate(tagged_dms):
                     type_verified_mention(dm)
-                    pyautogui.write(' ', interval=0.05)
-                    time.sleep(0.3)
+                    # WhatsApp auto-adds space after Tab-inserted mention
+                    time.sleep(0.5)
                 
+                # Add line break after all mentions
                 pyautogui.hotkey('shift', 'enter')
                 time.sleep(0.2)
                 pyautogui.hotkey('shift', 'enter')
@@ -881,11 +423,11 @@ def send_reminder(group_data, idx, total):
             
             if tagged_dms:
                 print(f"    👥 Adding verified mentions...")
-                for dm in tagged_dms:
+                for i, dm in enumerate(tagged_dms):
                     type_verified_mention(dm)
-                    pyautogui.write(' ', interval=0.05)
-                    time.sleep(0.3)
+                    time.sleep(0.5)
                 
+                # Add line break after all mentions
                 pyautogui.hotkey('shift', 'enter')
                 time.sleep(0.2)
                 pyautogui.hotkey('shift', 'enter')
@@ -902,10 +444,8 @@ def send_reminder(group_data, idx, total):
         print(f"  ✅ Done: {target}")
         time.sleep(2.0)
     
-    # Save progress after each successful group
     save_progress(idx)
     return True
-
 
 # ─────────────────────────────────────────────────────────────
 #  MAIN
